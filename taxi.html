@@ -1,0 +1,1574 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Văn Cường – Taxi & Xe ghép Hưng Yên – Nội Bài</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+
+  <style>
+    :root {
+      --green: #00a54f;
+      --green-dark: #008437;
+      --purple: #008437;
+      --orange: #f2542d;
+      --bg-soft: #fafafa;
+      --text: #222;
+      --muted: #777;
+      --radius: 10px;
+      --shadow: 0 12px 30px rgba(0,0,0,0.12);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background: #fff;
+      line-height: 1.6;
+    }
+
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+
+    /* TOP BAR */
+    .topbar {
+      background: white;
+      color: #110c0c;
+      text-align: center;
+      padding: 6px 12px;
+      font-size: 0.9rem;
+    }
+
+    /* HEADER & NAV */
+    header {
+      background: #0cbe56;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      color: rgb(255, 255, 255);
+    }
+
+    .nav {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.6rem 1rem;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+    }
+
+    .logo img {
+      width: 90px;
+      height: 90px;
+      object-fit: contain;
+      border-radius: 50%;
+    }
+
+  .logo-text {
+  font-weight: 700;
+  font-size: 1rem;
+  text-transform: uppercase;
+  color: rgb(255, 255, 255);
+  letter-spacing: .06em;
+  /* không nền, không bo tròn */
+}
+
+
+    .logo-sub {
+      font-size: 0.75rem;
+      color: rgb(255, 255, 255);
+      margin-top: 2px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.4rem;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a {
+      position: relative;
+      padding-bottom: 2px;
+      color: #333;
+      font-weight: 500;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background: var(--purple);
+      transition: width .18s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      padding: 0.45rem 1rem;
+      border-radius: 999px;
+      border: none;
+      background: var(--orange);
+      color: #fff;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+      cursor: pointer;
+    }
+
+    .nav-toggle span {
+      width: 20px;
+      height: 2px;
+      background: #333;
+      border-radius: 999px;
+    }
+
+    /* SECTION WRAPPER */
+    main {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 1.4rem 1rem 3rem;
+    }
+
+    section { margin-bottom: 3rem; }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 1.4rem;
+    }
+
+    .section-title h2 {
+      font-size: 1.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--purple);
+    }
+
+    .section-title p {
+      font-size: 0.95rem;
+      color: var(--muted);
+      margin-top: 0.3rem;
+    }
+
+    /* HERO */
+    .hero { margin-top: 1rem; }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 1.7rem;
+      align-items: center;
+    }
+
+    .hero-img {
+      position: relative;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-img img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    .hero-badge {
+      position: absolute;
+      left: 16px;
+      top: 16px;
+      background: rgba(0,0,0,0.7);
+      color: #fff;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+    }
+ .call-section {
+    max-width: 900px;
+    margin: 0 auto 40px;
+    padding: 0 16px;
+  }
+
+  .call-title {
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin: 24px 0 16px;
+    color: #0b6c2e;
+    text-transform: uppercase;
+  }
+
+  .call-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .call-btn {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    border-radius: 6px;
+    padding: 10px 14px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.18);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    transition: transform 0.12s ease, box-shadow 0.12s ease, filter 0.12s ease;
+  }
+
+  .call-btn.green {
+    background: #0a9a2e;
+  }
+
+  .call-btn.yellow {
+    background: #f3b022;
+  }
+
+  .call-btn:hover {
+    transform: translateY(-1px);
+    filter: brightness(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.22);
+  }
+
+  .call-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.18);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    flex-shrink: 0;
+    font-size: 1.1rem;
+  }
+
+  .call-text {
+    flex: 1;
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+
+  /* Responsive: >= 768px thì cho 2 cột */
+  @media (min-width: 768px) {
+    .call-list {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+    .hero-panel {
+      background: #fff;
+      border-radius: 14px;
+      padding: 1.4rem 1.5rem;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-panel h1 {
+      font-size: 1.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--purple);
+      margin-bottom: .6rem;
+    }
+
+    .hero-panel p {
+      font-size: 0.95rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+/* ===== FORM ĐẶT LỊCH XE ===== */
+.booking-section {
+  background: #f5f7fa;
+  padding: 32px 16px 40px;
+}
+
+.booking-inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.booking-title {
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #0a9a2e;
+  margin-bottom: 6px;
+}
+
+.booking-sub {
+  text-align: center;
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.booking-form {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 18px 16px 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.booking-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: 12px;
+}
+
+.booking-field {
+  flex: 1 1 160px;
+  display: flex;
+  flex-direction: column;
+}
+
+.booking-field.full {
+  flex-basis: 100%;
+}
+
+.booking-field label {
+  font-size: 0.86rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: #333;
+}
+
+.booking-field input,
+.booking-field select,
+.booking-field textarea {
+  border-radius: 6px;
+  border: 1px solid #d4dde6;
+  padding: 8px 10px;
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.booking-field input:focus,
+.booking-field select:focus,
+.booking-field textarea:focus {
+  border-color: #0a9a2e;
+  box-shadow: 0 0 0 2px rgba(10, 154, 46, 0.16);
+}
+
+.booking-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.booking-btn {
+  border: none;
+  border-radius: 999px;
+  padding: 10px 20px;
+  background: #0a9a2e;
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(10, 154, 46, 0.4);
+}
+
+.booking-btn:hover {
+  filter: brightness(1.05);
+  transform: translateY(-1px);
+}
+
+.booking-hotline {
+  font-size: 0.9rem;
+  color: #444;
+}
+
+.booking-hotline a {
+  color: #e53935;
+  font-weight: 700;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .booking-form {
+    padding: 14px 12px 16px;
+  }
+  .booking-actions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .booking-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+    .hero-bullets {
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+      color: #444;
+    }
+
+    .hero-bullets li {
+      margin-bottom: 0.3rem;
+    }
+
+    .hero-bullets li::marker { color: var(--green); }
+
+    .hero-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .btn {
+      border-radius: 999px;
+      padding: 0.55rem 1.5rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      white-space: nowrap;
+    }
+
+    .btn-red   { background: #d7263d; color:#fff; }
+    .btn-blue  { background: #0f8bff; color:#fff; }
+    .btn-purple{ background: var(--purple); color:#fff; }
+    .btn-outline{ background: transparent; border: 1px solid #ddd; color: #333; }
+
+    .btn span.icon { font-size: 1.1rem; }
+
+    /* QUALITY CARS */
+    .quality {
+      display: grid;
+      grid-template-columns: minmax(0,1.1fr) minmax(0,1.1fr);
+      gap: 1.8rem;
+      align-items: center;
+      margin-top: 2.4rem;
+    }
+
+    .quality-img-grid {
+      display: grid;
+      grid-template-columns: repeat(2,minmax(0,1fr));
+      gap: 0.6rem;
+    }
+
+    .quality-img-grid img {
+      border-radius: 10px;
+      height: 155px;
+      object-fit: cover;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.18);
+    }
+
+    .badge-top {
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--purple);
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+
+    .quality-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 0.7rem;
+    }
+
+    .quality ul {
+      margin: 0.3rem 0 1rem;
+      font-size: 0.92rem;
+      color: #444;
+      padding-left: 1.1rem;
+    }
+
+    .quality ul li { margin-bottom: 0.25rem; }
+
+    /* BENEFITS */
+    .benefits {
+      margin-top: 2rem;
+      display: grid;
+      grid-template-columns: minmax(0,1.1fr) minmax(0,1.1fr);
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .benefit-item { margin-bottom: 1rem; }
+
+    .benefit-item h3 {
+      color: var(--green-dark);
+      font-size: 1rem;
+      margin-bottom: .2rem;
+    }
+
+    .benefit-item p {
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+
+    .benefits-img {
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    /* SAFE TRIP */
+    .safe-trip {
+      margin-top: 1rem;
+      display: grid;
+      grid-template-columns: minmax(0,1.1fr) minmax(0,1.1fr);
+      gap: 2rem;
+      align-items: center;
+      background: #faf7ff;
+      border-radius: 16px;
+      padding: 1.8rem 1.5rem;
+    }
+
+    .safe-trip h3 {
+      font-size: 1.4rem;
+      color: var(--purple);
+      margin-bottom: .6rem;
+    }
+
+    .safe-trip ul {
+      padding-left: 1.1rem;
+      font-size: 0.94rem;
+      color: #444;
+    }
+
+    .safe-trip li { margin-bottom: 0.3rem; }
+    .safe-trip li::marker { color: var(--purple); }
+
+    .safe-trip a.more {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      margin-top: .7rem;
+      font-size: 0.9rem;
+      color: var(--orange);
+      font-weight: 600;
+    }
+
+    /* SERVICES GRID */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0,1fr));
+      gap: 1.3rem;
+    }
+
+    .service-card {
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 22px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .service-card img {
+      height: 160px;
+      object-fit: cover;
+    }
+
+    .service-body {
+      padding: 0.85rem 1rem 1rem;
+      font-size: 0.9rem;
+    }
+
+    .service-body h3 {
+      font-size: 1rem;
+      margin-bottom: .35rem;
+      color: var(--green-dark);
+    }
+
+    .service-body p {
+      color: var(--muted);
+      margin-bottom: .4rem;
+    }
+
+    .service-meta {
+      font-size: 0.84rem;
+      color: #555;
+      margin-bottom: .6rem;
+    }
+
+    .service-footer {
+      margin-top: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.86rem;
+    }
+
+    .tag-pill {
+      border-radius: 999px;
+      padding: 2px 9px;
+      background: #e7f8ee;
+      color: var(--green-dark);
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    /* PRICING */
+    .pricing-wrap {
+      background: var(--green);
+      color: #fff;
+      border-radius: 16px;
+      padding: 1.8rem 1.6rem 1.5rem;
+      display: grid;
+      grid-template-columns: minmax(0,1.1fr) minmax(0,1.1fr);
+      gap: 1.8rem;
+      align-items: center;
+    }
+
+    .pricing-headline {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: .5rem;
+    }
+
+    .pricing-left ul {
+      padding-left: 1.1rem;
+      font-size: 0.92rem;
+    }
+
+    .pricing-left li { margin-bottom: .35rem; }
+    .pricing-left li::marker { color: #fff; }
+
+    .pricing-table {
+      background:#fff;
+      color:#333;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.15);
+      font-size: 0.85rem;
+    }
+
+    .pricing-table-header {
+      background: #f5f5f5;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.78rem;
+    }
+
+    .pricing-row, .pricing-table-header {
+      display: grid;
+      grid-template-columns: 3fr 1.2fr 1.2fr;
+      padding: 0.45rem 0.7rem;
+      border-bottom: 1px solid #eee;
+    }
+
+    .pricing-row:nth-child(odd) { background:#fcfcfc; }
+
+    .pricing-row .price {
+      font-weight: 600;
+      color: var(--green-dark);
+    }
+
+    .pricing-footer-btns {
+      display: flex;
+      justify-content: center;
+      gap: 0.7rem;
+      padding: 0.7rem;
+      border-top: 1px solid #eee;
+      background: #fafafa;
+    }
+
+    .pricing-footer-btns .btn {
+      padding: 0.4rem 1rem;
+      font-size: 0.8rem;
+    }
+
+    /* TESTIMONIALS */
+    .testimonials {
+      background: #faf7ff;
+      border-radius: 16px;
+      padding: 1.6rem 1.5rem 1.2rem;
+    }
+
+    .testimonial-item {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .avatar {
+      width: 46px;
+      height: 46px;
+      background: #e5e5e5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      color: #999;
+      flex-shrink: 0;
+      border-radius: 50%;
+    }
+        .avatar img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .t-name { font-weight: 600; font-size: 0.94rem; }
+
+    .stars {
+      color: #ffb400;
+      font-size: 0.85rem;
+      margin-bottom:.2rem;
+    }
+
+    .t-text {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    /* NEWS */
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(3,minmax(0,1fr));
+      gap: 1.3rem;
+    }
+
+    .news-card {
+      background:#fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.08);
+      font-size: 0.86rem;
+    }
+
+    .news-card img {
+      height: 140px;
+      object-fit: cover;
+    }
+
+    .news-body {
+      padding: 0.75rem 0.85rem 0.9rem;
+    }
+
+    .news-meta {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-bottom: .25rem;
+    }
+
+    .news-title {
+      font-weight: 600;
+      margin-bottom: .3rem;
+    }
+
+    .news-body a.readmore {
+      margin-top: .4rem;
+      display:inline-flex;
+      font-size: 0.82rem;
+      color: var(--orange);
+      font-weight: 600;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #111;
+      color: #f3f3f3;
+      padding: 1.8rem 1rem 1rem;
+      margin-top: 1rem;
+    }
+
+    .footer-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2.1fr 1.4fr 1.4fr;
+      gap: 1.6rem;
+      font-size: 0.85rem;
+    }
+
+    .footer-title {
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.78rem;
+      margin-bottom: 0.5rem;
+      color: #bbb;
+    }
+
+    .footer-inner ul { list-style:none; }
+    .footer-inner li { margin-bottom: 0.25rem; }
+    .footer-inner a { color: #ddd; }
+
+    .footer-bottom {
+      max-width: 1180px;
+      margin: 0.9rem auto 0;
+      font-size: 0.8rem;
+      color: #888;
+      text-align: center;
+    }
+
+    /* FLOATING CONTACT */
+    .floating-contact {
+      position: fixed;
+      right: 18px;
+      bottom: 90px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      z-index: 1200;
+    }
+
+    .fc-btn {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      cursor:pointer;
+      border:none;
+      font-size: 0.9rem;
+      color:#fff;
+    }
+
+    .fc-zalo { background:#0084ff; }
+    .fc-call { background:#ffb400; }
+    .fc-top  { background:#fff; color:#333; }
+
+    .fc-top.hide { opacity:0; pointer-events:none; transform: translateY(10px); transition: .2s; }
+    .fc-top.show { opacity:1; pointer-events:auto; transform: translateY(0); transition:.2s; }
+
+    /* RESPONSIVE */
+    @media (max-width: 992px) {
+      .nav-links {
+        position: absolute;
+        inset: 100% 0 auto 0;
+        background:#fff;
+        flex-direction: column;
+        padding: 0.6rem 1rem 0.9rem;
+        box-shadow: 0 6px 15px rgba(0,0,0,0.12);
+        transform-origin: top;
+        transform: scaleY(0);
+        opacity: 0;
+        pointer-events:none;
+      }
+      .nav-links.open {
+        transform: scaleY(1);
+        opacity:1;
+        pointer-events:auto;
+      }
+      .nav-toggle { display:flex; }
+      .nav-cta { display:none; }
+
+      .hero-inner,
+      .quality,
+      .benefits,
+      .safe-trip,
+      .pricing-wrap {
+        grid-template-columns: minmax(0,1fr);
+      }
+
+      .services-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+      .news-grid     { grid-template-columns: repeat(2,minmax(0,1fr)); }
+
+      .footer-inner  { grid-template-columns: minmax(0,1fr); }
+    }
+
+    @media (max-width: 640px) {
+      main { padding: 1rem .75rem 2.4rem; }
+      .hero-panel h1 { font-size: 1.25rem; }
+      .hero-inner { gap: 1.1rem; }
+
+      .services-grid { grid-template-columns: minmax(0,1fr); }
+      .news-grid     { grid-template-columns: minmax(0,1fr); }
+
+      .pricing-row, .pricing-table-header {
+        grid-template-columns: 2.5fr 1fr 1.1fr;
+        font-size: 0.8rem;
+      }
+
+      .floating-contact { right: 10px; bottom: 70px; }
+      .fc-btn { width: 40px; height: 40px; }
+    }
+  </style>
+</head>
+<body>
+
+
+
+<header>
+  <nav class="nav">
+    <div class="logo">
+      <!-- Ảnh logo (xe 4 chỗ) -->
+      <img src="22sd.png" alt="Logo Văn Cường">
+      <div>
+        <div class="logo-text">Dịch vụ xe Văn Cường</div>
+        <div class="logo-sub">Taxi – Chở hàng – Xe ghép Hưng Yên–Nội Bài</div>
+      </div>
+    </div>
+
+    <div class="nav-links" id="navLinks">
+      <a href="#home">Trang chủ</a>
+      <a href="#benefits">Lợi ích</a>
+      <a href="#services">Dịch vụ</a>
+      <a href="#pricing">Bảng giá</a>
+      <a href="#dat-lich">Đặt lịch</a>
+      <a href="#reviews">Đánh giá</a>
+      <!-- <a href="#news">Tin tức</a> -->
+      <a href="#contact">Liên hệ</a>
+    </div>
+
+    <button class="nav-cta" onclick="scrollToId('pricing')">Đặt xe ngay</button>
+
+    <i class="fa-solid fa-bars" class="nav-toggle" id="navToggle" aria-label="Menu"></i>
+
+  </nav>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section id="home" class="hero">
+    <div class="hero-inner">
+      <div class="hero-img">
+        <!-- Ảnh SUV 7 chỗ -->
+        <img src="https://xeghephungyenhanoi.com/templates/page/images/xe-ghep-hung-yen-ha-noi.jpg" alt="Xe 7 chỗ chất lượng cao">
+        <div class="hero-badge">Xe 4–7 chỗ • Đón tận nơi Hưng Yên – Nội Bài</div>
+      </div>
+
+      <div class="hero-panel">
+        <h1>Taxi & Xe ghép Hưng Yên – Nội Bài</h1>
+        <p>
+          Dịch vụ của Văn Cường nhận đón tận nhà tại Hưng Yên, đưa khách ra sân bay Nội Bài và đi các tỉnh lân cận.
+          Xe 4 chỗ – 7 chỗ đời mới, giá báo trước, không lo phát sinh.
+        </p>
+
+        <ul class="hero-bullets">
+          <li>Taxi, chở hàng, xe ghép – tất cả trong một hệ thống.</li>
+          <li>Báo giá trọn gói, xác nhận lịch qua Zalo/SMS, gửi biển số xe & thông tin tài xế.</li>
+          <li>Xe sạch sẽ, điều hòa mát, có hỗ trợ ghế trẻ em khi cần.</li>
+        </ul>
+
+        <div class="hero-cta-row">
+          <button class="btn btn-red" onclick="window.location.href='tel:0982587518'"><span class="icon"><i class="fa-solid fa-phone-volume"></i></span> Gọi hotline</button>
+          <button class="btn btn-blue"><span class="icon">💬</span> Chat Zalo</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUALITY CARS -->
+  <section>
+    <div class="quality">
+      <div>
+        <div class="badge-top">Đội xe 4–7 chỗ Văn Cường</div>
+        <div class="quality-title">Xe sedan 4 chỗ &amp; SUV/MPV 7 chỗ đời mới</div>
+        <p>
+          Văn Cường sở hữu và liên kết đội xe đa dạng, từ sedan 4 chỗ tiết kiệm nhiên liệu đến SUV/MPV 7 chỗ rộng rãi.
+          Tất cả đều được vệ sinh – bảo dưỡng thường xuyên, phù hợp đi sân bay, công tác, du lịch gia đình.
+        </p>
+        <ul>
+          <li>Xe 4 chỗ: phù hợp đi 1–3 khách, hành lý gọn (vali 20–24 inch).</li>
+          <li>Xe 7 chỗ: đáp ứng nhóm 4–6 khách, chở được nhiều hành lý, hàng hóa.</li>
+          <li>Tài xế quen đường Hưng Yên – Nội Bài, chạy đúng tuyến, không “vòng vo”.</li>
+        </ul>
+        <div class="hero-cta-row" style="margin-top:.4rem;">
+          <span class="tag-pill">Xe luôn có sẵn</span>
+          <button class="btn btn-outline" onclick="scrollToId('services')">Xem dịch vụ chi tiết</button>
+        </div>
+      </div>
+
+      <div class="quality-img-grid">
+        <!-- 4 chỗ -->
+        <img src="https://xeghephungyenhanoi.com/templates/page/images/anh2.jpg" alt="Xe sedan 4 chỗ">
+        <!-- 7 chỗ -->
+        <img src="https://xeghephungyenhanoi.com/templates/page/images/anh3.jpg" alt="Xe SUV 7 chỗ">
+        <!-- thêm 2 ảnh minh họa -->
+        <img src="https://xeghephungyenhanoi.com/templates/page/images/anh4.jpg" alt="Xe 7 chỗ gia đình">
+        <img src="https://xeghephungyenhanoi.com/templates/page/images/anh6.jpg" alt="Xe 4 chỗ hạng C">
+      </div>
+    </div>
+  </section>
+
+  <!-- BENEFITS -->
+  <section id="benefits">
+    <div class="section-title">
+      <h2>Lợi ích khi chọn Văn Cường</h2>
+      <p>Minh bạch – An toàn – Tiết kiệm cho mọi chuyến đi Hưng Yên – Nội Bài</p>
+    </div>
+
+    <div class="benefits">
+      <div>
+        <div class="benefit-item">
+          <h3>Minh bạch &amp; rõ ràng</h3>
+          <p>Bảng giá công khai theo tuyến, có giá taxi theo km và giá trọn gói Hưng Yên – Nội Bài. Không thu thêm tiền cầu đường, bến bãi.</p>
+        </div>
+        <div class="benefit-item">
+          <h3>An tâm trên từng km</h3>
+          <p>Tài xế có kinh nghiệm, chạy đúng tốc độ, không nhồi nhét khách. Thông tin xe & tài xế được gửi trước khi khởi hành.</p>
+        </div>
+        <div class="benefit-item">
+          <h3>Tiết kiệm chi phí</h3>
+          <p>Xe ghép giúp chia sẻ chi phí với khách khác; xe tuyến & taxi trọn gói có giá ưu đãi cho khách đi hai chiều, đi thường xuyên.</p>
+        </div>
+
+        <div class="hero-cta-row" style="margin-top:.8rem;">
+          <button class="btn btn-purple" onclick="scrollToId('pricing')">Xem bảng giá niêm yết</button>
+          <button class="btn btn-outline">Hướng dẫn đặt xe nhanh</button>
+        </div>
+      </div>
+
+    <div class="benefits-img">
+  <img src="582000085_1169926894578750_2907298442567524539_n.jpg" alt="Xe sedan 4 chỗ">
+</div>
+    </div>
+  </section>
+
+  <!-- SAFE TRIP -->
+  <section>
+    <div class="safe-trip">
+     <div class="safe-trip-img">
+  <img src="https://taxi-tai.com/uploads/images/hungyen/xe-ghep/xe-ghep-hung-yen-ha-noi-tai-app-gvtaxi.jpg" alt="Đoàn xe Văn Cường">
+</div>
+
+      <div>
+        <h3>Hành trình an tâm Hưng Yên – Nội Bài</h3>
+        <ul>
+          <li>Nhận đón các huyện: Văn Giang, Yên Mỹ, Khoái Châu, Mỹ Hào, TP Hưng Yên…</li>
+          <li>Lựa chọn linh hoạt: taxi riêng, xe ghép, hoặc xe tuyến cố định giờ.</li>
+          <li>Hỗ trợ chờ chiều về, ghé thêm điểm trong nội thành Hà Nội khi cần.</li>
+          <li>Không tăng giá gấp nhiều lần vào Lễ/Tết – chỉ hết xe sớm.</li>
+        </ul>
+        <a href="#" class="more">Tìm hiểu thêm <span>›</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES GRID -->
+  <section id="services">
+    <div class="section-title">
+      <h2>Dịch vụ của Văn Cường</h2>
+      <p>4 nhóm dịch vụ chính: Taxi, Chở hàng, Xe ghép Hưng Yên – Nội Bài, Xe tuyến Hưng Yên – Nội Bài</p>
+    </div>
+
+    <div class="services-grid">
+      <!-- TAXI -->
+      <article class="service-card">
+        <img src="https://xeghephungyenhanoi.com/templates/page/images/xe5cho.png" alt="Taxi 4 chỗ">
+        <div class="service-body">
+          <h3>Taxi 4–7 chỗ</h3>
+          <p>Nhận đón taxi nội tỉnh Hưng Yên và đi các tỉnh lân cận: Hà Nội, Hải Dương, Bắc Ninh…</p>
+          <div class="service-meta">Tính theo km hoặc theo chuyến trọn gói.</div>
+          <div class="service-footer">
+            <span class="tag-pill">Từ 11.000đ/km</span>
+            <button class="btn btn-outline" style="padding:0.35rem 0.9rem;">Đặt taxi</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- CHỞ HÀNG -->
+      <article class="service-card">
+        <img src="https://xeghephungyenhanoi.com/templates/page/images/xeghep7cho.jpg" alt="Chở hàng bằng xe 7 chỗ / bán tải">
+        <div class="service-body">
+          <h3>Chở hàng, gửi đồ</h3>
+          <p>Nhận chở hàng nhẹ, gửi đồ Hưng Yên – Hà Nội – Nội Bài, giao nhanh trong ngày.</p>
+          <div class="service-meta">Xe 7 chỗ bỏ ghế hoặc xe bán tải/bán tải nhỏ.</div>
+          <div class="service-footer">
+            <span class="tag-pill">Từ 250.000đ/chuyến</span>
+            <button class="btn btn-outline" style="padding:0.35rem 0.9rem;">Gửi hàng</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- XE GHÉP -->
+ 
+
+      <!-- XE TUYẾN -->
+      <article class="service-card">
+        <img src="https://xeghephungyenhanoi.com/templates/page/images/xeghep9cho.png" alt="Xe tuyến cố định">
+        <div class="service-body">
+          <h3>Xe ghép tuyến Hưng Yên – Nội Bài</h3>
+          <p>Xe ghép chạy giờ linh động, đón tại các điểm hẹn, phù hợp khách đi thường xuyên.</p>
+          <div class="service-meta">Xe 7 chỗ bỏ ghế hoặc xe bán tải/bán tải nhỏ.</div>
+          <div class="service-footer">
+            <span class="tag-pill">Từ 350.000đ/vé</span>
+            <a href="#dat-lich"><button class="btn btn-outline">Đặt lịch chạy</button></a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+<section class="call-section">
+  <h2 class="call-title">Gọi xe ghép Hưng Yên – Nội Bài</h2>
+
+  <div class="call-list">
+    <!-- Mỗi item 1 nút – thay số trong data-phone -->
+    <a href="#" class="call-btn green" data-phone="0982587518">
+      <span class="call-icon"><i class="fa-solid fa-phone-volume"></i></span>
+      <span class="call-text">GỌI XE GHÉP THÀNH PHỐ HƯNG YÊN</span>
+    </a>
+
+    <a href="#" class="call-btn yellow" data-phone="0982587518">
+      <span class="call-icon"><i class="fa-solid fa-phone-volume"></i></span>
+      <span class="call-text">GỌI XE GHÉP HUYỆN TIÊN LỮ</span>
+    </a>
+
+    <a href="#" class="call-btn green" data-phone="0982587518">
+      <span class="call-icon"><i class="fa-solid fa-phone-volume"></i></span>
+      <span class="call-text">GỌI XE GHÉP HUYỆN KIM ĐỘNG</span>
+    </a>
+
+    <a href="#" class="call-btn yellow" data-phone="0982587518">
+      <span class="call-icon"><i class="fa-solid fa-phone-volume"></i></span>
+      <span class="call-text">GỌI XE GHÉP HUYỆN PHÙ CỪ</span>
+    </a>
+
+    <a href="#" class="call-btn green" data-phone="0982587518">
+      <span class="call-icon"><i class="fa-solid fa-phone-volume"></i></span>
+      <span class="call-text">GỌI XE GHÉP HUYỆN ÂN THI</span>
+    </a>
+
+    <a href="#" class="call-btn yellow" data-phone="0982587518">
+      <span class="call-icon"><i class="fa-solid fa-phone-volume"></i></span>
+      <span class="call-text">GỌI XE GHÉP HUYỆN KHOÁI CHÂU</span>
+    </a>
+
+    <a href="#" class="call-btn green" data-phone="0982587518">
+      <span class="call-icon"><i class="fa-solid fa-phone-volume"></i></span>
+      <span class="call-text">GỌI XE GHÉP HUYỆN YÊN MỸ</span>
+    </a>
+
+    <a href="#" class="call-btn yellow" data-phone="0982587518">
+      <span class="call-icon"><i class="fa-solid fa-phone-volume"></i></span>
+      <span class="call-text">GỌI XE GHÉP HUYỆN MỸ HÀO</span>
+    </a>
+
+    <a href="#" class="call-btn green" data-phone="0982587518">
+      <span class="call-icon"><i class="fa-solid fa-phone-volume"></i></span>
+      <span class="call-text">GỌI XE GHÉP HUYỆN VĂN GIANG</span>
+    </a>
+  </div>
+</section>
+  <!-- PRICING -->
+  <section id="pricing">
+    <div class="section-title">
+      <h2>Bảng giá tham khảo</h2>
+      <p>Giá thực tế có thể linh động theo điểm đón và thời gian – luôn báo trước cho khách</p>
+    </div>
+
+    <div class="pricing-wrap">
+      <div class="pricing-left">
+        <div class="pricing-headline">Giá taxi & xe Hưng Yên – Nội Bài</div>
+        <p style="margin-bottom:.6rem;">
+          Dưới đây là giá cơ bản cho một số dịch vụ phổ biến của Văn Cường. Với khách quen, khách đi chiều về hoặc đi theo tháng,
+          chúng tôi luôn có chính sách ưu đãi riêng.
+        </p>
+        <ul>
+          <li>Giá đã bao gồm phí cầu đường, xăng xe, gửi xe sân bay.</li>
+          <li>Không phụ thu đêm muộn, chỉ cần đặt lịch trước.</li>
+          <li>Hỗ trợ xuất hoá đơn/phiếu thu cho khách công ty.</li>
+        </ul>
+      </div>
+
+      <div class="pricing-table">
+        <div class="pricing-table-header">
+          <div>Dịch vụ / Tuyến đường</div>
+          <div>Loại xe</div>
+          <div>Giá từ</div>
+        </div>
+        <div class="pricing-row">
+          <div>Taxi nội tỉnh Hưng Yên</div>
+          <div>4 chỗ</div>
+          <div class="price">11.000đ/km</div>
+        </div>
+        <div class="pricing-row">
+          <div>Taxi Hưng Yên ⇄ Hà Nội</div>
+          <div>4–7 chỗ</div>
+          <div class="price">450.000đ/chuyến</div>
+        </div>
+        <div class="pricing-row">
+          <div>Xe ghép Hưng Yên ⇄ Nội Bài</div>
+          <div>Ghế trên xe 7 chỗ</div>
+          <div class="price">250.000đ/ghế</div>
+        </div>
+        <div class="pricing-row">
+          <div>Xe riêng Hưng Yên ⇄ Nội Bài (bao 4 chỗ)</div>
+          <div>4 chỗ</div>
+          <div class="price">650.000đ/chuyến</div>
+        </div>
+        <div class="pricing-row">
+          <div>Xe riêng Hưng Yên ⇄ Nội Bài (bao 7 chỗ)</div>
+          <div>7 chỗ</div>
+          <div class="price">800.000đ/chuyến</div>
+        </div>
+        <div class="pricing-row">
+          <div>Chở hàng Hưng Yên ⇄ Nội Bài</div>
+          <div>7 chỗ bỏ ghế / xe tải nhỏ</div>
+          <div class="price">300.000đ/chuyến</div>
+        </div>
+
+        <div class="pricing-footer-btns">
+                   <button class="btn btn-red" onclick="window.location.href='tel:0982587518'"><span class="icon"><i class="fa-solid fa-phone-volume"></i></span> Gọi hotline</button>
+          <button class="btn btn-blue"><span class="icon">💬</span> Chat Zalo</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="reviews">
+    <div class="section-title">
+      <h2>Khách hàng nói gì về Văn Cường</h2>
+      <p>Một vài nhận xét sau khi đi taxi, xe ghép Hưng Yên – Nội Bài</p>
+    </div>
+
+    <div class="testimonials">
+      <div class="testimonial-item">
+        <div class="avatar"><img src="https://images.pexels.com/photos/1339536/pexels-photo-1339536.jpeg?cs=srgb&dl=pexels-baphi-1339536.jpg&fm=jpg" alt=""></div>
+        <div>
+          <div class="t-name">Nguyễn Thanh Tùng</div>
+          <div class="stars">★★★★★</div>
+          <div class="t-text">Mình hay đi công tác từ Văn Giang lên sân bay. Đặt xe bên Văn Cường giá rõ ràng, không phải mặc cả, tài xế đến đúng giờ.</div>
+        </div>
+      </div>
+
+      <div class="testimonial-item">
+        <div class="avatar"><img src="https://bloganchoi.com/wp-content/uploads/2024/03/top-10-quoc-gia-co-phu-nu-dep-nhat-chau-a.jpg" alt=""></div>
+        <div>
+          <div class="t-name">Trần Thị Hạnh</div>
+          <div class="stars">★★★★★</div>
+          <div class="t-text">Đi xe ghép mà vẫn rất thoải mái, không nhồi khách. Lái xe thân thiện, hỗ trợ bê vali, gửi thông tin xe trước nên mình yên tâm.</div>
+        </div>
+      </div>
+
+      <div class="testimonial-item">
+        <div class="avatar"><img src="https://images.pexels.com/photos/2231132/pexels-photo-2231132.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt=""></div>
+        <div>
+          <div class="t-name">Phạm Hồng Nhung</div>
+          <div class="stars">★★★★★</div>
+          <div class="t-text">Gia đình mình 5 người đi 7 chỗ từ Yên Mỹ ra Nội Bài. Xe mới, sạch, giá đúng như báo trước, có ghé thêm điểm mà không thu quá tay.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ====== FORM ĐẶT LỊCH XE ====== -->
+<section id="dat-lich" class="booking-section">
+  <div class="booking-inner">
+    <h2 class="booking-title">ĐẶT LỊCH XE VĂN CƯỜNG</h2>
+    <p class="booking-sub">
+      Điền thông tin chuyến đi, Văn Cường sẽ gọi lại xác nhận trong thời gian sớm nhất.
+    </p>
+
+    <form id="bookingForm" class="booking-form">
+      <div class="booking-row">
+        <div class="booking-field">
+          <label for="bkName">Họ và tên *</label>
+          <input type="text" id="bkName" name="name" required />
+        </div>
+        <div class="booking-field">
+          <label for="bkPhone">Số điện thoại *</label>
+          <input type="tel" id="bkPhone" name="phone" required />
+        </div>
+      </div>
+
+      <div class="booking-row">
+        <div class="booking-field">
+          <label for="bkPickup">Điểm đón *</label>
+          <input type="text" id="bkPickup" name="pickup" placeholder="VD: Văn Giang, Hưng Yên" required />
+        </div>
+        <div class="booking-field">
+          <label for="bkDrop">Điểm trả *</label>
+          <input type="text" id="bkDrop" name="drop" placeholder="VD: Sân bay Nội Bài" required />
+        </div>
+      </div>
+
+      <div class="booking-row">
+        <div class="booking-field">
+          <label for="bkDate">Ngày đi *</label>
+          <input type="date" id="bkDate" name="date" required />
+        </div>
+        <div class="booking-field">
+          <label for="bkTime">Giờ đi *</label>
+          <input type="time" id="bkTime" name="time" required />
+        </div>
+        <div class="booking-field">
+          <label for="bkType">Loại xe *</label>
+          <select id="bkType" name="car_type" required>
+            <option value="">Chọn loại xe</option>
+            <option value="4-cho">Xe 4 chỗ</option>
+            <option value="7-cho">Xe 7 chỗ</option>
+            <option value="khac">Khác (minibus, xe riêng...)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="booking-row">
+        <div class="booking-field full">
+          <label for="bkNote">Ghi chú thêm</label>
+          <textarea id="bkNote" name="note" rows="3"
+            placeholder="VD: Nhà có người già / trẻ nhỏ, cần ghé thêm 1–2 điểm..."></textarea>
+        </div>
+      </div>
+
+      <div class="booking-actions">
+        <button type="submit" class="booking-btn">
+          <i class="fa-solid fa-paper-plane"></i>
+          Đặt lịch ngay
+        </button>
+        <div class="booking-hotline">
+          Hoặc gọi nhanh: <a href="tel:0982587518">0982 587 518</a>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
+
+
+  <!-- NEWS -->
+  <!-- <section id="news">
+    <div class="section-title">
+      <h2>Tin tức &amp; ưu đãi</h2>
+      <p>Cập nhật khuyến mãi và thông báo giờ chạy xe tuyến Hưng Yên – Nội Bài</p>
+    </div>
+
+    <div class="news-grid">
+      <article class="news-card">
+        <img src="https://images.pexels.com/photos/3767294/pexels-photo-3767294.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="">
+        <div class="news-body">
+          <div class="news-meta">17/11 • Bảng giá</div>
+          <div class="news-title">Cập nhật giá taxi Hưng Yên – Nội Bài, Hưng Yên – Hà Nội</div>
+          <p>Bảng giá chi tiết theo từng huyện và từng loại xe 4–7 chỗ, áp dụng từ quý 4/2025.</p>
+          <a href="#" class="readmore">Xem chi tiết ›</a>
+        </div>
+      </article>
+
+      <article class="news-card">
+        <img src="https://images.pexels.com/photos/3767294/pexels-photo-3767294.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="">
+        <div class="news-body">
+          <div class="news-meta">22/11 • Ưu đãi</div>
+          <div class="news-title">Khách đặt vé khứ hồi Hưng Yên – Nội Bài giảm ngay 50.000đ</div>
+          <p>Áp dụng cho cả xe ghép và xe riêng, khi đặt 2 chiều cùng lúc qua Zalo.</p>
+          <a href="#" class="readmore">Xem chi tiết ›</a>
+        </div>
+      </article>
+
+      <article class="news-card">
+        <img src="https://images.pexels.com/photos/3767294/pexels-photo-3767294.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="">
+        <div class="news-body">
+          <div class="news-meta">28/11 • Kinh nghiệm</div>
+          <div class="news-title">Chọn xe ghép hay taxi riêng khi đi Nội Bài?</div>
+          <p>So sánh nhanh về chi phí, sự thoải mái và thời gian cho khách ở Hưng Yên.</p>
+          <a href="#" class="readmore">Xem chi tiết ›</a>
+        </div>
+      </article>
+    </div>
+  </section> -->
+</main>
+
+<!-- FOOTER -->
+<footer id="contact">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-title">Thông tin liên hệ</div>
+      <p><strong>Văn Cường – Taxi &amp; Dịch vụ vận chuyển</strong></p>
+      <p>Địa chỉ: Văn Giang, Hưng Yên (có thể chỉnh lại đúng địa chỉ của bạn).</p>
+      <p>Hotline/Zalo: <strong>0xxx xxx xxx</strong></p>
+      <p>Email: <a href="mailto:vancuong.taxi@example.com">vancuong.taxi@example.com</a></p>
+    </div>
+
+    <div>
+      <div class="footer-title">Dịch vụ</div>
+      <ul>
+        <li>Taxi 4–7 chỗ Hưng Yên</li>
+        <li>Chở hàng – Gửi đồ</li>
+        <li>Xe ghép Hưng Yên – Nội Bài</li>
+        <li>Xe tuyến Hưng Yên – Nội Bài</li>
+      </ul>
+    </div>
+
+    <div>
+      <div class="footer-title">Chính sách</div>
+      <ul>
+        <li>Hướng dẫn đặt xe &amp; thanh toán</li>
+        <li>Chính sách đổi giờ / huỷ chuyến</li>
+        <li>Bảo mật thông tin khách hàng</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    © 2025 Văn Cường – Landing page demo. Bạn đổi hotline, địa chỉ, email cho đúng thực tế là dùng được.
+  </div>
+</footer>
+<style>/* Hiệu ứng rung nhẹ */
+/* Vòng tròn tỏa ra */
+.pulse-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 60px;
+  height: 60px;
+  border: 3px solid rgba(255, 193, 7, 0.6);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: pulseAnimation 1.8s ease-out infinite;
+  z-index: -1;
+}
+
+@keyframes pulseAnimation {
+  0% {
+    transform: translate(-50%, -50%) scale(0.6);
+    opacity: 0.8;
+  }
+  70% {
+    transform: translate(-50%, -50%) scale(1.5);
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Style nút nổi */
+.float-call, .float-zalo {
+  position: fixed;
+  right: 15px;
+  bottom: 90px;
+  width: 55px;
+  height: 55px;
+  background: #ffc107;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+  cursor: pointer;
+  z-index: 999;
+}
+
+.float-zalo {
+  bottom: 150px;
+  background: #0068ff;
+}
+
+</style>
+<!-- FLOATING CONTACT -->
+<!-- <div class="floating-contact">
+  <button class="fc-btn fc-top hide" id="btnTop" title="Lên đầu trang"><i class="fa-solid fa-angles-up"></i></button>
+  <button class="fc-btn fc-zalo" title="Chat Zalo"><img src="" alt=""></button>
+  <button class="fc-btn fc-call" title="Gọi hotline"><i class="fa-solid fa-phone-volume"></i></button>
+</div> -->
+<div class="float-zalo">
+    <span class="pulse-ring"></span>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Icon_of_Zalo.svg/2048px-Icon_of_Zalo.svg.png" width="30">
+</div>
+
+<!-- Nút gọi điện -->
+<div class="float-call" onclick="window.location.href='tel:0982587518'">
+    <span class="pulse-ring"></span>
+    <i class="fa-solid fa-phone-volume" style="font-size:26px;color:white;"></i>
+</div>
+<script>
+$(document).ready(function () {
+    $(".btn-blue").click(function () {
+      window.location.href = "https://zalo.me/0982587518";
+    });
+    $(".float-zalo").click(function () {
+      window.location.href = "https://zalo.me/0982587518";
+    });
+});
+</script>
+<script>
+  // Handle submit form đặt lịch
+  const bookingForm = document.getElementById("bookingForm");
+  if (bookingForm) {
+    bookingForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      // Ở đây sau này bạn có thể gửi dữ liệu qua PHP/Ajax.
+      // Tạm thời chỉ hiện thông báo cho khách.
+      alert(
+        "Cảm ơn bạn đã đặt lịch xe Văn Cường! Chúng tôi sẽ liên hệ xác nhận trong ít phút."
+      );
+
+      bookingForm.reset();
+    });
+  }
+</script>
+
+<script>
+
+  
+ // Toggle mobile nav
+const navToggle = document.getElementById("navToggle");
+const navLinks  = document.getElementById("navLinks");
+
+navToggle.addEventListener("click", () => {
+  navLinks.classList.toggle("open");
+});
+
+// Smooth scroll helper
+function scrollToId(id) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  const y = el.getBoundingClientRect().top + window.scrollY - 120; // -90 là chiều cao header
+  window.scrollTo({ top: y, behavior: "smooth" });
+}
+window.scrollToId = scrollToId;
+
+// Click vào menu -> scroll + đóng menu
+document.querySelectorAll('#navLinks a[href^="#"]').forEach(link => {
+  link.addEventListener('click', function (e) {
+    e.preventDefault();
+    const targetId = this.getAttribute('href').substring(1);
+    scrollToId(targetId);
+    navLinks.classList.remove("open");
+  });
+});
+
+
+  // Scroll top button
+  const btnTop = document.getElementById("btnTop");
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 400) {
+      btnTop.classList.add("show");
+      btnTop.classList.remove("hide");
+    } else {
+      btnTop.classList.add("hide");
+      btnTop.classList.remove("show");
+    }
+  });
+  btnTop.addEventListener("click", () => window.scrollTo({top:0, behavior:"smooth"}));
+</script>
+
+</body>
+</html>
